@@ -1,0 +1,285 @@
+*{
+    box-sizing: border-box;
+    -moz-user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+::-webkit-scrollbar{
+    width: 10px;
+    background-color:#838383;
+}
+::-webkit-scrollbar-thumb{
+    background: #404040;
+}
+html{
+    background-color: #e7e7e7;
+    scroll-behavior: smooth;
+}
+body{
+    font-family: "lato", sans-serif;
+    scrollbar-width: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* --------------- Header --------------- */
+
+header{
+    /*background-image: url("../image/fondo.webp");*/
+    height: 25rem;
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background: linear-gradient(to top, rgba(231, 231, 231, 1) 0%, rgba(231, 231, 231, 0) 40%);
+}
+.titulo{
+    top: 3rem;
+    text-align: center;
+    font-family:'Tangerine', serif;
+    font-style: oblique;
+    font-size: 120px;
+    color: #ffffff;
+    text-shadow: 4px 4px 4px #8f8f8f;
+}
+.fondo-b{
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 25rem;
+    z-index: -1;
+}
+@media screen and (max-width: 768px){
+    .fondo-b{
+        height: 20rem;
+    }
+}
+/* ------------- Menú horizontal ------------- */
+.menu-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0;
+}
+.menu {
+    display: flex;
+    list-style: none;
+    text-shadow: 4px 4px 4px #000000;
+}
+ul.menu{
+    padding: 0px;
+    margin: -0.6px 0px 0px 0px;
+}
+.menu li {
+    position: relative;
+    overflow: hidden;
+}
+.menu li a {
+    color: white;
+    text-decoration: none;
+    padding: 20px;
+    display: block;
+    position: relative;
+}
+.menu-container ul li a::before {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 3px;
+    left: 50%;
+    position: absolute;
+    background: #fff;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+.menu-container ul li a:hover::before {
+    left: 0;
+    width: 100%;
+}
+
+/* ### Version Movil ### */
+.menuX {
+    display: none;
+    cursor: pointer;
+    padding: 15px;
+}
+.menuX div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+    transition: all 0.3s;
+}
+
+/* --------------- MAIN --------------- */
+.container-img{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 250px auto;
+    grid-gap: 20px;
+    width: 100%;
+    max-width: 1150px;
+    margin: 40px auto 40px auto;
+    padding: 20px;
+}
+.container-img .box-img{
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+.container-img .box-img:hover {
+    transform: scale(1.03);
+}
+.container-img .box-img figure{
+    width: 100%;
+    height: 100%;
+}
+.container-img .box-img img{
+    width: 100%;
+    height: 100%;
+}
+.container-img .box-img:nth-child(2){
+    grid-column-start: span 2;
+}
+.container-img .box-img:nth-child(3){
+    grid-row-start: span 2;
+}
+
+/* ------------- Resolución de pantalla ------------- */
+@media screen and (max-width: 567px){
+    .container-img{
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        max-width: 900px;
+        margin: 20px auto;
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .menu-container{
+        justify-content: space-between;
+        backdrop-filter: blur(10px);
+        box-shadow: 0px 0px rgba(255, 255, 255, 0.37);
+        background-color: rgba(35, 35, 35, 0.408);
+    }
+    .menuX {
+        display: block;
+    }
+    .menu {
+        position: absolute;
+        top: 60px;
+        left: -100%;
+        width: 100%;
+        flex-direction: column;
+        transition: all 0.3s ease;
+        z-index: 1000;
+        backdrop-filter: blur(10px);
+        box-shadow: 0px 0px rgb(227, 228, 237, 0.37);
+        background-color: rgba(35, 35, 35, 0.408);
+        font-size: 14px;
+    }
+    .menu.active {
+        left: 0;
+    }
+    .menu li {
+        text-align: center;
+    }
+    .menu li a {
+        padding: 15px;
+    }
+    .menu li a::before {
+        height: 1px;
+        bottom: 0;
+        background-color: #ffffff;
+    }
+    .menuX.active div:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    .menuX.active div:nth-child(2) {
+        opacity: 0;
+    }
+    .menuX.active div:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+    .container-img {
+        grid-template-rows: 40%;
+        padding: 40px;
+        margin: 15px auto 15px auto;
+    }
+    header{
+        height: 20rem;
+    }
+    .titulo{
+        font-size: 100px;
+    }
+}
+@media screen and (max-width: 1024px) { /* ### Laptop ### */
+    .container-img {
+        grid-template-rows: 40%;
+        padding: 40px;
+        margin: 20px auto 20px auto;
+    }
+}
+@media screen and (max-width: 1440px) { /* ### Laptop L ### */
+    .container-img {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 2560px) { /* ### Laptop L ### */
+    .container-img {
+        width: 100%;
+    }
+}
+
+/* --------------- Footer --------------- */
+.static-footer {
+    background-color: #ffffff;
+    padding: 25px 0;
+    text-align: center;
+    border-top: 1px solid #e1e1e1;
+}
+.social-row {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 0 15px;
+}
+.social-pill {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+/* Colores sólidos sin gradientes */
+.home-pill {
+    background-color: #4b4b4b;
+}
+.shop-pill {
+    background-color: #6f42c1;
+}
+.instagram-pill {
+    background: linear-gradient(45deg, #405DE6, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #F77737);
+}
+.tiktok-pill {
+    background-color: #010101;
+}
+.footer-note {
+    margin-top: 30px;
+    color: #666666;
+    font-size: 15px;
+    padding: 10px;
+}

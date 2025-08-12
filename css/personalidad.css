@@ -1,0 +1,268 @@
+*{
+    box-sizing: border-box;
+    -moz-user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+::-webkit-scrollbar{
+    width: 10px;
+    background-color:#838383;
+}
+::-webkit-scrollbar-thumb{
+    background: #404040;
+}
+html{
+    background-color: #e7e7e7;
+    scroll-behavior: smooth;
+}
+body{
+    font-family: "lato", sans-serif;
+    scrollbar-width: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* --------------- Header --------------- */
+
+header{
+    background-color: #1f1f1f;
+}
+
+/* ------------- Menú horizontal ------------- */
+
+.menu-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0;
+}
+.menu {
+    display: flex;
+    list-style: none;
+    text-shadow: 4px 4px 4px #000000;
+}
+ul.menu{
+    padding: 0px;
+    margin: -0.6px 0px 0px 0px;
+}
+.menu li {
+    position: relative;
+    overflow: hidden;
+}
+.menu li a {
+    color: white;
+    text-decoration: none;
+    padding: 20px;
+    display: block;
+    position: relative;
+}
+.menu-container ul li a::before {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 3px;
+    left: 50%;
+    position: absolute;
+    background: #fff;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+.menu-container ul li a:hover::before {
+    left: 0;
+    width: 100%;
+}
+
+/* ### Version Movil ### */
+.menuX {
+    display: none;
+    cursor: pointer;
+    padding: 15px;
+}
+.menuX div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+    transition: all 0.3s;
+}
+@media screen and (max-width: 768px) {
+    .menu-container{
+        justify-content: space-between;
+        box-shadow: 0px 0px rgba(255, 255, 255, 0.37);
+        background-color: #1f1f1f;
+    }
+    .menuX {
+        display: block;
+    }
+    .menu {
+        position: absolute;
+        top: 60px;
+        left: -100%;
+        width: 100%;
+        flex-direction: column;
+        transition: all 0.3s ease;
+        z-index: 1000;
+        background-color: #1f1f1f;
+        font-size: 14px;
+    }
+    .menu.active {
+        left: 0;
+    }
+    .menu li {
+        text-align: center;
+    }
+    .menu li a {
+        padding: 15px;
+    }
+    .menu li a::before {
+        height: 1px;
+        bottom: 0;
+        background-color: #ffffff;
+    }
+    .menuX.active div:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    .menuX.active div:nth-child(2) {
+        opacity: 0;
+    }
+    .menuX.active div:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+}
+/* --------------- MAIN --------------- */
+.principal_titulo{
+    text-align: center;
+    font-style: oblique;
+    color: #2e2e2e;
+}
+/* ---------- Autor ---------- */
+.author {
+    max-width: 1200px;
+    margin: 25px auto 0;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+.img-author {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 30px;
+}
+.img-author img {
+    width: 300px;
+    height: 300px;
+    border-radius: 18%;
+    object-fit: cover;
+    border: 5px solid #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+.author-tilde {
+    font-size: 28px;
+    color: #1f1f1f;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+.author-tilde::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 4px;
+    background-color: #F39C12;
+}
+.description {
+    line-height: 1.6;
+    font-size: 18px;
+}
+.description p {
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .img-author {
+        flex-direction: column;
+        align-items: center;
+    }
+    .img-author img {
+        width: 200px;
+        height: 200px;
+        margin-bottom: 20px;
+    }
+    .author-tilde {
+        font-size: 24px;
+        text-align: center;
+    }
+    .author-tilde::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .description{
+        font-size: 16px
+    }
+}
+.description-info{
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    background: #ffffff;
+    color:#2D3748;
+    font-size: 17px;
+    font-family: "Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,
+                 "Helvetica Neue",sans-serif, "Apple Color Emoji", 
+                 "Segoe UI Emoji", "Segoe UI Symbol";
+    line-height: 1.6;
+    font-weight: 400;
+}
+/* --------------- Footer --------------- */
+.static-footer {
+    background-color: #ffffff;
+    padding: 25px 0;
+    text-align: center;
+    border-top: 1px solid #e1e1e1;
+}
+.social-row {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 0 15px;
+}
+.social-pill {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+/* Colores sólidos sin gradientes */
+.home-pill {
+    background-color: #4b4b4b;
+}
+.shop-pill {
+    background-color: #6f42c1;
+}
+.instagram-pill {
+    background: linear-gradient(45deg, #405DE6, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #F77737);
+}
+.tiktok-pill {
+    background-color: #010101;
+}
+.footer-note {
+    margin-top: 30px;
+    color: #666666;
+    font-size: 15px;
+    padding: 10px;
+}

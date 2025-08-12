@@ -1,0 +1,51 @@
+/* Estilos para el botón TopBack */
+.topback-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #fba66e, #a777e3);
+    /*background: linear-gradient(135deg, #6e8efb, #a777e3);*/
+    color: white;
+    border: none;
+    border-radius: 20%;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+.topback-btn.visible {
+    opacity: 1;
+    visibility: visible;
+}
+.topback-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+.topback-btn:active {
+    transform: translateY(0);
+}
+
+/* Icono (puedes reemplazarlo por una imagen o fuente de iconos) */
+.topback-icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border: solid white;
+    border-width: 0 5px 5px 0;
+    transform: rotate(-135deg);
+    margin-bottom: -8px;
+}
+
+@media (max-width: 768px) {
+    .topback-btn{
+        bottom: 180px;
+    }
+}
